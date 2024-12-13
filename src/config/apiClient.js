@@ -7,6 +7,7 @@ const options = {
   baseURL: "https://mernauth-server.azurewebsites.net/",
   withCredentials: true,
 };
+axios.defaults.withCredentials = true;
 
 // create a separate client for refreshing the access token
 // to avoid infinite loops with the error interceptor
@@ -29,6 +30,7 @@ API.interceptors.response.use(
         return TokenRefreshClient(config);
       } catch (error) {
         // handle refresh errors by clearing the query cache & redirecting to login
+        console.log(error)
         queryClient.clear();
         navigate("/login", {
           state: {
