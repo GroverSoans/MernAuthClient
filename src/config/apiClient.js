@@ -4,7 +4,7 @@ import { UNAUTHORIZED } from "../constants/http.mjs";
 import { navigate } from "../lib/navigation";
 
 const options = {
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://mernauth-server.azurewebsites.net/",
   withCredentials: true,
 };
 
